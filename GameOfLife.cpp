@@ -34,9 +34,7 @@ const int boardRows = 100;
 const int boardCols = 100;
 Cell board[boardRows][boardCols];
 
-sf::Uint8* renderBoard(Cell board[boardRows][boardCols]) {
-    sf::Uint8* pixels = new sf::Uint8[WindowWidth * WindowHeight * 4];
-
+sf::Uint8* renderBoard(sf::Uint8* pixels, Cell board[boardRows][boardCols]) {
     int gridCols = WindowWidth / boardCols;
     int gridRows = WindowHeight / boardRows;
 
@@ -137,6 +135,7 @@ int main()
     sf::Texture texture;
     texture.create(WindowWidth, WindowHeight);
     sf::Sprite sprite(texture);
+    sf::Uint8* pixels = new sf::Uint8[WindowWidth * WindowHeight * 4];
 
     long long frameCount;
 
@@ -279,7 +278,7 @@ int main()
         window.clear(sf::Color::Blue);
 
         //update texture
-        sf::Uint8* pixels = renderBoard(board);
+        pixels = renderBoard(pixels, board);
 
         //control framerate
         if (frameCount % 30 == 0) {
