@@ -80,6 +80,7 @@ Cell (*GameOfLife(Cell board[boardRows][boardCols]))[boardRows][boardCols] {
         }
     }
 
+
     for (int x = 0; x < boardCols; x++) {
         for (int y = 0; y < boardRows; y++) {
             //need to count live neighbours
@@ -88,16 +89,17 @@ Cell (*GameOfLife(Cell board[boardRows][boardCols]))[boardRows][boardCols] {
             for (int posX = x-1; posX <= x+1; posX++) {
                 for (int posY = y-1; posY <= y+1; posY++) {
                     //skip the current cell
-                    if (posX == 0 && posY == 0) continue;
+                    if (posX == x && posY == y) continue;
                     //handle edges
                     if (posX < 0 || posX > boardCols || posY < 0 || posY > boardRows) {
-                        liveNeighbours++;
+                        //liveNeighbours++;
                         continue;
                     } 
 
                     liveNeighbours += (board[posX][posY].getState() == ALIVE);
                 }
             }
+            
 
             //change state based on number of live neighbours
             if (newBoard[x][y].getState() == ALIVE) {
@@ -108,6 +110,7 @@ Cell (*GameOfLife(Cell board[boardRows][boardCols]))[boardRows][boardCols] {
 
                 //'Any live cell with two or three live neighbors lives on to the next generation.'
                 //This cell is already alive, so do nothing
+
 
                 //'Any live cell with more than three live neighbors dies, as if by overpopulation.'
                 if (liveNeighbours > 3) {
@@ -123,7 +126,6 @@ Cell (*GameOfLife(Cell board[boardRows][boardCols]))[boardRows][boardCols] {
 
         }
     }
-
 
     return &newBoard;
 };
@@ -141,20 +143,67 @@ int main()
     //populate the board
     for (int x = 0; x < boardCols; x++) {
         for (int y = 0; y < boardRows; y++) {
-            board[x][y] = Cell(ALIVE);
+            board[x][y] = Cell(DEAD);
+            /*
             if (x == 0 || x == boardCols - 1 || y == 0 || y == boardRows - 1) {
                 board[x][y] = Cell(DEAD);
             }
+            */
+
+           // GOSPER GLIDER GUN //
+           //REQUIRES BOARD SIZE 37X10
+           if ( (x == 1 && y == 5)
+             || (x == 1 && y == 6) 
+             || (x == 2 && y == 5) 
+             || (x == 2 && y == 6) 
+             || (x == 11 && y == 5) 
+             || (x == 11 && y == 6) 
+             || (x == 11 && y == 7) 
+             || (x == 12 && y == 4) 
+             || (x == 12 && y == 8) 
+             || (x == 13 && y == 3) 
+             || (x == 13 && y == 9) 
+             || (x == 14 && y == 3) 
+             || (x == 14 && y == 9) 
+             || (x == 15 && y == 6) 
+             || (x == 16 && y == 4) 
+             || (x == 16 && y == 8)
+             || (x == 17 && y == 5) 
+             || (x == 17 && y == 6)
+             || (x == 17 && y == 7) 
+             || (x == 18 && y == 6)   
+             || (x == 21 && y == 3) 
+             || (x == 21 && y == 4)
+             || (x == 21 && y == 5)
+             || (x == 22 && y == 3)
+             || (x == 22 && y == 4)
+             || (x == 22 && y == 5)
+             || (x == 23 && y == 2)
+             || (x == 23 && y == 6)
+             || (x == 25 && y == 1)
+             || (x == 25 && y == 2)
+             || (x == 25 && y == 6)
+             || (x == 25 && y == 7)
+             || (x == 35 && y == 4)
+             || (x == 35 && y == 5)
+             || (x == 36 && y == 4)
+             || (x == 36 && y == 5)
+            ) {
+                board[x][y] = Cell(ALIVE);
+            }
         }
     }
+    
 
     //print the board
+    /*
     for (int x = 0; x < boardCols; x++) {
         for (int y = 0; y < boardRows; y++) {
             std::cout << board[x][y].getState() << " ";
         }
         std::cout << std::endl;
     }
+    */
 
     //runs once per frame
     while (window.isOpen())
