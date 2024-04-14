@@ -191,6 +191,62 @@ int main()
             ) {
                 board[x][y] = Cell(ALIVE);
             }
+
+            //PULSAR
+            const int pulsarX = 3;
+            const int pulsarY = 28;
+            if ( (x - pulsarX == 0 && y - pulsarY == 2)
+              || (x - pulsarX == 0 && y - pulsarY == 3) 
+              || (x - pulsarX == 0 && y - pulsarY == 4) 
+              || (x - pulsarX == 0 && y - pulsarY == 8) 
+              || (x - pulsarX == 0 && y - pulsarY == 9) 
+              || (x - pulsarX == 0 && y - pulsarY == 10) 
+              || (x - pulsarX == 2 && y - pulsarY == 0) 
+              || (x - pulsarX == 2 && y - pulsarY == 5) 
+              || (x - pulsarX == 2 && y - pulsarY == 7) 
+              || (x - pulsarX == 2 && y - pulsarY == 12)
+              || (x - pulsarX == 3 && y - pulsarY == 0)
+              || (x - pulsarX == 3 && y - pulsarY == 5)   
+              || (x - pulsarX == 3 && y - pulsarY == 7)
+              || (x - pulsarX == 3 && y - pulsarY == 12) 
+              || (x - pulsarX == 4 && y - pulsarY == 0)  
+              || (x - pulsarX == 4 && y - pulsarY == 5)
+              || (x - pulsarX == 4 && y - pulsarY == 7)
+              || (x - pulsarX == 4 && y - pulsarY == 12)
+              || (x - pulsarX == 5 && y - pulsarY == 2)
+              || (x - pulsarX == 5 && y - pulsarY == 3)
+              || (x - pulsarX == 5 && y - pulsarY == 4)
+              || (x - pulsarX == 5 && y - pulsarY == 8)
+              || (x - pulsarX == 5 && y - pulsarY == 9)
+              || (x - pulsarX == 5 && y - pulsarY == 10)
+              || (x - pulsarX == 7 && y - pulsarY == 2)
+              || (x - pulsarX == 7 && y - pulsarY == 3)
+              || (x - pulsarX == 7 && y - pulsarY == 4)
+              || (x - pulsarX == 7 && y - pulsarY == 8)
+              || (x - pulsarX == 7 && y - pulsarY == 9)
+              || (x - pulsarX == 7 && y - pulsarY == 10)
+              || (x - pulsarX == 8 && y - pulsarY == 0)
+              || (x - pulsarX == 8 && y - pulsarY == 5)
+              || (x - pulsarX == 8 && y - pulsarY == 7)
+              || (x - pulsarX == 8 && y - pulsarY == 12)
+              || (x - pulsarX == 9 && y - pulsarY == 0)
+              || (x - pulsarX == 9 && y - pulsarY == 5)
+              || (x - pulsarX == 9 && y - pulsarY == 7)
+              || (x - pulsarX == 9 && y - pulsarY == 12)
+              || (x - pulsarX == 10 && y - pulsarY == 0)
+              || (x - pulsarX == 10 && y - pulsarY == 5)
+              || (x - pulsarX == 10 && y - pulsarY == 7)
+              || (x - pulsarX == 10 && y - pulsarY == 12)
+              || (x - pulsarX == 12 && y - pulsarY == 2)
+              || (x - pulsarX == 12 && y - pulsarY == 3)
+              || (x - pulsarX == 12 && y - pulsarY == 4)
+              || (x - pulsarX == 12 && y - pulsarY == 8)
+              || (x - pulsarX == 12 && y - pulsarY == 9)
+              || (x - pulsarX == 12 && y - pulsarY == 10)
+            ) {
+                board[x][y] = Cell(ALIVE);
+            }
+
         }
     }
     
